@@ -1,14 +1,18 @@
-import React from 'react'
+import React from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { game } from 'reducers/game';
 import { Player } from 'components/Player'
 
 export const Stats = () => {
+  const dispatch = useDispatch();
   // TODO - get the 'winner' from the game reducer
-  const winner = null
+  const winner = useSelector((store) => store.game.winner);
   // TODO - get the 'nextPlayer' from the game reducer
-  const nextPlayer = 'x'
+  const nextPlayer = useSelector((store) => store.game.player);
 
   const handleButtonPress = () => {
     // TODO - dispatch the restart action
+    dispatch(game.actions.restart())
   }
 
   if (winner) {
