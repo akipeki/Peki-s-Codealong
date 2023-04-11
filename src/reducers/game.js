@@ -1,6 +1,8 @@
-import { createSlice } from '@reduxjs/toolkit'
-import { calculateWinner } from 'utils/calculateWinner'
+// Import required libraries and functions
+import { createSlice } from '@reduxjs/toolkit' // To create a Redux slice
+import { calculateWinner } from 'utils/calculateWinner' // To determine the winner of the game
 
+// Define the initial state for a new game
 const newGame = {
   squares: [
     null, null, null,
@@ -11,6 +13,7 @@ const newGame = {
   player: 'x'
 }
 
+// Create the game slice with reducers for capturing a square and restarting the game
 export const game = createSlice({
   name: 'game',
   initialState: newGame,
@@ -37,6 +40,7 @@ export const game = createSlice({
       }
     },
     restart: () => {
+      // Reset the game state to the initial state
       return newGame
     }
   }
